@@ -49,31 +49,21 @@ section:nth-of-type(3) {
 }
 
 section:nth-of-type(4) {
-    background-color: #3d506e;
-    background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+    background-color: #20374a;
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
 }
 
 section:nth-of-type(5) {
-    background-color: #3d506e;
-    background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+    background-color: #20374a;
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
 }
 
 section:nth-of-type(6) {
-    background-color: #20374a;
-    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
-}
-
-section:nth-of-type(7) {
-    background-color: #20374a;
-    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
-}
-
-section:nth-of-type(8) {
     background-color: #152945;
     background-image: url("https://www.transparenttextures.com/patterns/noisy.png");
 }
 
-section:nth-of-type(9) {
+section:nth-of-type(7) {
     background-color: #293f5e;
     background-image: url("https://www.transparenttextures.com/patterns/old-wall.png");
 }

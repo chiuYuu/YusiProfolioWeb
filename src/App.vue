@@ -4,7 +4,7 @@ import { ref, onMounted } from "vue";
 export default {
   setup() {
     const sections = ref(null);
-    let curPage =   ref(-1);
+    let curPage = ref(-1);
     let scrollLock = false;
     const goTopBtn = ref(false); // 控制回到頂部的按鈕
 
@@ -104,24 +104,6 @@ export default {
   </section>
 
   <section class="flex flex-col items-center">
-    <a href="https://chiuyuu.github.io/clock-vue/" target="_blank"
-      class="flex justify-center flex-col mx-10 px-10 py-6 lg:px-20 box mb-10 middle">
-      <span class="text-2xl sm:text-4xl lg:text-5xl py-5">
-        時區時鐘
-      </span>
-      <span class="text-base sm:text-xl lg:text-3xl opacity-60 pb-5">
-        Time Zone Clock
-      </span>
-    </a>
-
-    <span class="span-down">
-      挑選亞洲、歐洲、美洲其各四個國家
-      <br>
-      進行時間的對照與呈現
-    </span>
-  </section>
-
-  <section class="flex flex-col items-center">
     <a href="https://chiuyuu.github.io/todolist/" target="_blank"
       class="flex justify-center flex-col mx-10 px-10 py-6 lg:px-20 box middle">
       <span class="text-2xl sm:text-4xl lg:text-5xl py-5">
@@ -140,47 +122,11 @@ export default {
   </section>
 
   <section class="flex flex-col items-center">
-    <a href="https://chiuyuu.github.io/calculator/" target="_blank"
-      class="flex justify-center flex-col mx-10 px-10 py-6 lg:px-20 box middle">
-      <span class="text-2xl sm:text-4xl lg:text-5xl py-5">
-        簡易計算機
-      </span>
-      <span class="text-base sm:text-xl lg:text-3xl opacity-60 pb-5">
-        Calculator
-      </span>
-    </a>
-
-    <span class="span-down">
-      進行簡易的加減乘除計算，可顯示10筆資訊並存入localStorage 中
-      <br>
-      當計算第11筆資料後，則清除最舊的資料
-    </span>
-  </section>
-
-  <section class="flex flex-col items-center">
     <h1 class="text-2xl sm:text-3xl lg:text-4xl">
       2
       <span># 串接api 進行資料呈現</span>
     </h1>
 
-    <a href="https://chiuyuu.github.io/WeatherCards/" target="_blank"
-      class="flex justify-center flex-col mx-10 px-10 py-6 lg:px-20 box mb-10 middle">
-      <span class="text-2xl sm:text-4xl lg:text-5xl py-5">
-        天氣小卡
-      </span>
-      <span class="text-base sm:text-xl lg:text-3xl opacity-60 pb-5">
-        Weather Cards
-      </span>
-    </a>
-
-    <span class="span-down">
-      進行氣象局天氣預報的資料串接
-      <br>
-      可篩選臺灣北中南東各縣市的天氣小卡
-    </span>
-  </section>
-
-  <section class="flex flex-col items-center">
     <a href="https://chiuyuu.github.io/Pokemon-Search/" target="_blank"
       class="flex justify-center flex-col mx-10 px-10 py-6 lg:px-20 box middle">
       <span class="text-2xl sm:text-4xl lg:text-5xl py-5">
@@ -195,6 +141,24 @@ export default {
       串接寶可夢api，以供查詢寶可夢資訊
       <br>
       並呈現對應的圖片、GIF圖檔、編號與英文名稱
+    </span>
+  </section>
+
+  <section class="flex flex-col items-center">
+    <a href="https://chiuyuu.github.io/WeatherCards/" target="_blank"
+      class="flex justify-center flex-col mx-10 px-10 py-6 lg:px-20 box mb-10 middle">
+      <span class="text-2xl sm:text-4xl lg:text-5xl py-5">
+        天氣小卡
+      </span>
+      <span class="text-base sm:text-xl lg:text-3xl opacity-60 pb-5">
+        Weather Cards
+      </span>
+    </a>
+
+    <span class="span-down">
+      進行氣象局天氣預報的資料串接
+      <br>
+      可篩選臺灣北中南東各縣市的天氣小卡
     </span>
   </section>
 
