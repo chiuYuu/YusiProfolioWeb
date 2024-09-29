@@ -4,7 +4,7 @@ import { ref, onMounted } from "vue";
 export default {
   setup() {
     const sections = ref(null);
-    let curPage =   ref(-1);
+    let curPage = ref(-1);
     let scrollLock = false;
     const goTopBtn = ref(false); // 控制回到頂部的按鈕
 
@@ -19,6 +19,24 @@ export default {
         if (scrollLock) return;
         if (e.key === "ArrowUp") navigateUp();
         else if (e.key === "ArrowDown") navigateDown();
+      });
+
+      // 手機觸摸滾動
+      document.addEventListener("touchstart", (e) => {
+        startY = e.touches[0].clientY; // 記錄觸摸開始的Y座標
+      });
+
+      document.addEventListener("touchmove", (e) => {
+        if (scrollLock) return;
+        const moveY = e.touches[0].clientY;
+
+        if (startY - moveY > 50) {
+          // 向上滑動
+          navigateDown();
+        } else if (moveY - startY > 50) {
+          // 向下滑動
+          navigateUp();
+        }
       });
 
       window.addEventListener("scroll", () => {
