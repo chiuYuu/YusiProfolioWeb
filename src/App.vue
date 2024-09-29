@@ -4,8 +4,9 @@ import { ref, onMounted } from "vue";
 export default {
   setup() {
     const sections = ref(null);
-    let curPage = -1;
+    let curPage =   ref(-1);
     let scrollLock = false;
+    const goTopBtn = ref(false); // 控制回到頂部的按鈕
 
     const scrollPage = () => {
       document.addEventListener("wheel", (e) => {
@@ -19,43 +20,60 @@ export default {
         if (e.key === "ArrowUp") navigateUp();
         else if (e.key === "ArrowDown") navigateDown();
       });
+
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        goTopBtn.value = scrollY > 500;
+      });
     };
 
     const pagination = () => {
       scrollLock = true;
-      const targetSection = sections.value[curPage];
+      const targetSection = sections.value[curPage.value];
       targetSection.scrollIntoView({ behavior: "smooth" });
       setTimeout(() => {
         scrollLock = false;
-      }, 1000);
+      }, 500);
     };
 
     const navigateUp = () => {
-      if (curPage === 0) return;
-      curPage--;
+      if (curPage.value === 0) return;
+      curPage.value--;
       pagination();
     };
 
     const navigateDown = () => {
-      if (curPage === sections.value.length - 1) return;
-      curPage++;
+      if (curPage.value === sections.value.length - 1) return;
+      curPage.value++;
       pagination();
     };
+
+    const goTop = (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      curPage.value = -1; // 重製curPage
+    }
 
     onMounted(() => {
       sections.value = document.querySelectorAll("section");
       scrollPage();
     });
 
-    return {};
+    return {
+      goTop,
+      goTopBtn
+    };
   },
 };
 </script>
 
 <template>
+
   <section class="flex flex-col items-center">
+    <button @click="goTop" v-if="goTopBtn" class="text-white go-top bg-[#876e6e6c] px-3 py-2 rounded-[50%]"> ↑ </button>
+
     <h1 class="text-2xl sm:text-3xl lg:text-4xl middle">
-      Hi, This is Yusi's web link
+      Hi, this is Yusi's web link
       <span class="text-lg">Please scroll down or use the down arrow key</span>
     </h1>
   </section>
